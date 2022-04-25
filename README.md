@@ -7,7 +7,7 @@ Get IP address(es) with go-lang is a simple command line tool to get your IP add
 ## Usage
 
 ```bash
- ./ipinfo -h
+ ipinfo -h
 A longer description that spans multiple lines and likely contains
 examples and usage of using your application. For example:
 
@@ -35,21 +35,21 @@ Use "ipinfo [command] --help" for more information about a command.
 External IP:
 
 ```bash
-./ipinfo external
+ipinfo external
 External ip address: xx.xx.xx.xx
 ```
 
 Internal IP:
 
 ```bash
-./ipinfo internal
+ipinfo internal
 VPN ip address: 192.168.1.49
 ```
 
 VPN IP:
 
 ```bash
-./ipinfo vpn
+ipinfo vpn
 VPN ip address: xx.xx.xx.xx
 ```
 
