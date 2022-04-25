@@ -1,0 +1,6 @@
+[credential]
+  helper=osxkeychain
+
+[user]
+	name = Murat Oğuz
+	email = murat_asu@hotmail.com
