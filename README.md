@@ -7,7 +7,7 @@ Get IP address(es) with go-lang is a simple command line tool to get your IP add
 ## Usage
 
 ```bash
- ipinfo -h
+ipinfo -h
 A longer description that spans multiple lines and likely contains
 examples and usage of using your application. For example:
 
