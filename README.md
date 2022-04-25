@@ -1,4 +1,4 @@
-# Get IP Address with go-lang
+# Get IP Address with Golang
 
 [![Go](https://github.com/masum0813/ipinfo/actions/workflows/go.yml/badge.svg?branch=main)](https://github.com/masum0813/ipinfo/actions/workflows/go.yml)
 
