@@ -6,6 +6,11 @@ package main
 
 import "ipinfo/cmd"
 
+var (
+	// VERSION is set during build
+	VERSION = "0.0.5"
+)
+
 func main() {
-	cmd.Execute()
+	cmd.Execute(VERSION)
 }
