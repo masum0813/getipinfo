@@ -1,6 +1,6 @@
-[![Go](https://github.com/masum0813/ipinfo/actions/workflows/go.yml/badge.svg?branch=main)](https://github.com/masum0813/ipinfo/actions/workflows/go.yml)
-
 # Get IP Address with go-lang
+
+[![Go](https://github.com/masum0813/ipinfo/actions/workflows/go.yml/badge.svg?branch=main)](https://github.com/masum0813/ipinfo/actions/workflows/go.yml)
 
 Get IP address(es) with go-lang is a simple command line tool to get your IP address vpn, internal, external, etc.
 
@@ -53,6 +53,12 @@ ipinfo vpn
 VPN ip address: xx.xx.xx.xx
 ```
 
+* How to install ipinfo
+
+```bash
+go install github.com/masum0813/ipinfo@latest
+```
+
 * Install Cobra[https://github.com/spf13/cobra]
 
 ```bash
@@ -80,3 +86,5 @@ cobra-cli add internal
 ### References
 
 <https://github.com/GlenDC/go-external-ip>
+
+<https://dev.to/koddr/github-action-for-release-your-go-projects-as-fast-and-easily-as-possible-20a2>
