@@ -23,6 +23,7 @@ Available Commands:
   external    Get external ip information
   help        Help about any command
   internal    Get internal ip information
+  version     Show ipinfo version information
   vpn         Get vpn ip information
 
 Flags:
