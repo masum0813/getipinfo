@@ -8,7 +8,7 @@ import "github.com/masum0813/ipinfo/cmd"
 
 var (
 	// VERSION is set during build
-	VERSION = "0.0.8"
+	VERSION = "0.0.9"
 )
 
 func main() {
