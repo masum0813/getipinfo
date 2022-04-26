@@ -1,4 +1,4 @@
-module ipinfo
+module github.com/masum0813/ipinfo
 
 go 1.18
 

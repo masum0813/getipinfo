@@ -6,7 +6,8 @@ package cmd
 
 import (
 	"fmt"
-	"ipinfo/networkdata/deviceinfo"
+
+	"github.com/masum0813/ipinfo/networkdata/deviceinfo"
 
 	"github.com/spf13/cobra"
 )
