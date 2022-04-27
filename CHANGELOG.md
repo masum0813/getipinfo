@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning].
 ### Fixed
 - Changed Project variable to getipinfo
 
+### Added
+- Added more than one ip address
+-
+
 ## [0.0.10] - 2022-04-26
 
 ### Added

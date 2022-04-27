@@ -30,16 +30,23 @@ getipinfo internal -d en0
 			// data := di.GetIpAddressFromInterfaceName()
 
 			var retVal string
+
 			di := deviceinfo.DeviceInfo{
 				DeviceName: strInternalDeviceFlag,
 			}
-			data := di.GetIpAddressFromInterfaceName()
+
+			datas := di.GetIpAddressFromInterfaceName()
 
 			// Print internal ip address
-			if data == "" {
+			if len(datas) == 0 {
 				retVal = fmt.Sprintf("Are you connected to the internet or internal adapter not starts with \"%s\" ?", strInternalDeviceFlag)
 			} else {
-				retVal = fmt.Sprintf("Ip address (%s): %s", strInternalDeviceFlag, data)
+				for _, data := range datas {
+					// fmt.Println(data)
+					var tmpData deviceinfo.AdapterDetails = deviceinfo.AdapterDetails(data)
+					retVal += fmt.Sprintf("Ip address (%s): %s \n", tmpData.IfaceName, tmpData.IpAddress )	
+				}
+				
 			}
 			println(retVal)
 		},

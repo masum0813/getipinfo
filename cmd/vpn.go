@@ -32,13 +32,17 @@ getipinfo vpn -d ppp0
 			di := deviceinfo.DeviceInfo{
 				DeviceName: strVpnDeviceFlag,
 			}
-			data := di.GetIpAddressFromInterfaceName()
+			datas := di.GetIpAddressFromInterfaceName()
 
 			// Print internal ip address
-			if data == "" {
-				retVal = fmt.Sprintf("Are you connected to the VPN or Vpn adapter not starts with \"%s\" ?", strVpnDeviceFlag)
+			if len(datas) == 0 {
+				retVal = fmt.Sprintf("Are you connected to the internet or internal adapter not starts with \"%s\" ?", strInternalDeviceFlag)
 			} else {
-				retVal = fmt.Sprintf("VPN ip address (%s): %s", strVpnDeviceFlag, data)
+				for _, data := range datas {
+					// fmt.Println(data)
+					var tmpData deviceinfo.AdapterDetails = deviceinfo.AdapterDetails(data)
+					retVal += fmt.Sprintf("Ip address (%s): %s \n", tmpData.IfaceName, tmpData.IpAddress)
+				}
 			}
 			println(retVal)
 		},

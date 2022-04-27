@@ -1,7 +1,6 @@
 package deviceinfo
 
 import (
-	"fmt"
 	"net"
 	"strings"
 )
@@ -10,10 +9,16 @@ type DeviceInfo struct {
 	DeviceName string
 }
 
-func (deviceInfo DeviceInfo) GetIpAddressFromInterfaceName() string {
+type AdapterDetails struct {
+	IpAddress string
+	IfaceName string
+}
+
+func (deviceInfo DeviceInfo) GetIpAddressFromInterfaceName() []AdapterDetails {
 
 	// Get internal ip address
-	var retVal string = ""
+	var arrreturnvalue []AdapterDetails
+
 	// var deviceinfo DeviceInfo
 	ifaces, err := net.Interfaces()
 	if err != nil {
@@ -44,16 +49,20 @@ func (deviceInfo DeviceInfo) GetIpAddressFromInterfaceName() string {
 				if ip == nil || ip.IsLoopback() {
 					continue
 				}
-				ip = ip.To4()
+				ip = ip.To4()	
 				if ip == nil {
 					continue // not an ipv4 address
 				}
+				returnvalue := AdapterDetails{
+					IpAddress: ip.String(),
+					IfaceName: iface.Name,
+				}
+				arrreturnvalue = append(arrreturnvalue, returnvalue)
+				arrreturnvalue = append(arrreturnvalue, returnvalue)
 
-				retVal = fmt.Sprintf("%s", ip.String())
 			}
 		}
 	}
 
-	// deviceinfo.ReturnValue = retVal
-	return retVal
+	return arrreturnvalue
 }
