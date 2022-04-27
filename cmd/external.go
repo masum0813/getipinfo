@@ -23,50 +23,53 @@ var (
 )
 
 // externalCmd represents the external command
-var externalCmd = &cobra.Command{
-	Use:   "external",
-	Short: "Get external ip information",
-	Long: `Get internal ip information on your computer/systems.
+var (
+	externalCmd = &cobra.Command{
+		Use:   "external",
+		Short: "Get external ip information",
+		Long: `Get external ip information on your computer/systems.
 For example:
 
-ipinfo external`,
-	Run: func(cmd *cobra.Command, args []string) {
+ipinfo external
+`,
+		Run: func(cmd *cobra.Command, args []string) {
 
-		var retVal string
+			var retVal string
 
-		// configure the consensus
-		cfg := externalip.DefaultConsensusConfig()
-		if timeout != nil {
-			cfg.WithTimeout(*timeout)
-		}
+			// configure the consensus
+			cfg := externalip.DefaultConsensusConfig()
+			if timeout != nil {
+				cfg.WithTimeout(*timeout)
+			}
 
-		// optionally create the logger,
-		// if no logger is defined, all logs will be discarded.
-		var logger *log.Logger
-		if verbose != nil && *verbose {
-			logger = externalip.NewLogger(os.Stderr)
-		}
+			// optionally create the logger,
+			// if no logger is defined, all logs will be discarded.
+			var logger *log.Logger
+			if verbose != nil && *verbose {
+				logger = externalip.NewLogger(os.Stderr)
+			}
 
-		// create the consensus
-		consensus := externalip.DefaultConsensus(cfg, logger)
-		err := consensus.UseIPProtocol(*protocol)
-		errCheck(err)
+			// create the consensus
+			consensus := externalip.DefaultConsensus(cfg, logger)
+			err := consensus.UseIPProtocol(*protocol)
+			errCheck(err)
 
-		// retrieve the external ip
-		ip, err := consensus.ExternalIP()
-		errCheck(err)
+			// retrieve the external ip
+			ip, err := consensus.ExternalIP()
+			errCheck(err)
 
-		// success, simply output the IP in string format
-		// fmt.Println(ip.String())
-		// Print internal ip address
-		if ip.String() == "" {
-			retVal = "Are you connected to the internet or internal adapter not starts with \"en\" ?"
-		} else {
-			retVal = fmt.Sprintf("External ip address: %s", ip.String())
-		}
-		println(retVal)
-	},
-}
+			// success, simply output the IP in string format
+			// fmt.Println(ip.String())
+			// Print internal ip address
+			if ip.String() == "" {
+				retVal = "Are you connected to the internet ?"
+			} else {
+				retVal = fmt.Sprintf("External ip address: %s", ip.String())
+			}
+			println(retVal)
+		},
+	}
+)
 
 func errCheck(err error) {
 	if err != nil {
