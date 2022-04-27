@@ -13,32 +13,37 @@ import (
 )
 
 // vpnCmd represents the vpn command
-var vpnCmd = &cobra.Command{
-	Use:   "vpn",
-	Short: "Get vpn ip information",
-	Long: `Get vpn ip information on your computer/systems if vpn adapter starts with "ppp"
+var (
+	strVpnDeviceFlag string
+	vpnCmd           = &cobra.Command{
+		Use:   "vpn",
+		Short: "Get vpn ip information",
+		Long: `Get vpn ip information on your computer/systems if vpn adapter starts with "ppp"
 For example:
 
-ipinfo vpn`,
-	Run: func(cmd *cobra.Command, args []string) {
+ipinfo vpn
+ipinfo vpn -d ppp0
+`,
+		Run: func(cmd *cobra.Command, args []string) {
 
-		// var di deviceinfo.DeviceInfo
-		// data := di.GetIpAddressFromInterfaceName()
-		var retVal string
-		di := deviceinfo.DeviceInfo{
-			DeviceName: "ppp0",
-		}
-		data := di.GetIpAddressFromInterfaceName()
+			// var di deviceinfo.DeviceInfo
+			// data := di.GetIpAddressFromInterfaceName()
+			var retVal string
+			di := deviceinfo.DeviceInfo{
+				DeviceName: strVpnDeviceFlag,
+			}
+			data := di.GetIpAddressFromInterfaceName()
 
-		// Print internal ip address
-		if data == "" {
-			retVal = "Are you connected to the VPN or Vpn adapter not starts with \"ppp\" ?"
-		} else {
-			retVal = fmt.Sprintf("VPN ip address: %s", data)
-		}
-		println(retVal)
-	},
-}
+			// Print internal ip address
+			if data == "" {
+				retVal = fmt.Sprintf("Are you connected to the VPN or Vpn adapter not starts with \"%s\" ?", strVpnDeviceFlag)
+			} else {
+				retVal = fmt.Sprintf("VPN ip address (%s): %s", strVpnDeviceFlag, data)
+			}
+			println(retVal)
+		},
+	}
+)
 
 func init() {
 	rootCmd.AddCommand(vpnCmd)
@@ -52,4 +57,5 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// vpnCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	vpnCmd.Flags().StringVarP(&strVpnDeviceFlag, "device", "d", "ppp", "Device name")
 }

@@ -13,8 +13,7 @@ import (
 )
 
 var (
-	strDeviceFlag string
-
+	strInternalDeviceFlag string
 	// internalCmd represents the internal command
 	internalCmd = &cobra.Command{
 		Use:   "internal",
@@ -29,18 +28,18 @@ ipinfo internal -d en0
 
 			// var di deviceinfo.DeviceInfo
 			// data := di.GetIpAddressFromInterfaceName()
-			println(strDeviceFlag)
+
 			var retVal string
 			di := deviceinfo.DeviceInfo{
-				DeviceName: strDeviceFlag,
+				DeviceName: strInternalDeviceFlag,
 			}
 			data := di.GetIpAddressFromInterfaceName()
 
 			// Print internal ip address
 			if data == "" {
-				retVal = "Are you connected to the internet or internal adapter not starts with \"en\" ?"
+				retVal = fmt.Sprintf("Are you connected to the internet or internal adapter not starts with \"%s\" ?", strInternalDeviceFlag)
 			} else {
-				retVal = fmt.Sprintf("Ip address: %s", data)
+				retVal = fmt.Sprintf("Ip address (%s): %s", strInternalDeviceFlag, data)
 			}
 			println(retVal)
 		},
@@ -59,6 +58,6 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// internalCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-	internalCmd.Flags().StringVarP(&strDeviceFlag, "device", "d", "en0", "Device name")
+	internalCmd.Flags().StringVarP(&strInternalDeviceFlag, "device", "d", "en0", "Device name")
 
 }
