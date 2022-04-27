@@ -12,33 +12,40 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// internalCmd represents the internal command
-var internalCmd = &cobra.Command{
-	Use:   "internal",
-	Short: "Get internal ip information",
-	Long: `Get internal ip information on your computer/systems if vpn adapter starts with "en"
+var (
+	strDeviceFlag string
+
+	// internalCmd represents the internal command
+	internalCmd = &cobra.Command{
+		Use:   "internal",
+		Short: "Get internal ip information",
+		Long: `Get internal ip information on your computer/systems if vpn adapter starts with "en"
 For example:
 
-ipinfo internal`,
-	Run: func(cmd *cobra.Command, args []string) {
+ipinfo internal
+ipinfo internal -d en0
+`,
+		Run: func(cmd *cobra.Command, args []string) {
 
-		// var di deviceinfo.DeviceInfo
-		// data := di.GetIpAddressFromInterfaceName()
-		var retVal string
-		di := deviceinfo.DeviceInfo{
-			DeviceName: "en0",
-		}
-		data := di.GetIpAddressFromInterfaceName()
+			// var di deviceinfo.DeviceInfo
+			// data := di.GetIpAddressFromInterfaceName()
+			println(strDeviceFlag)
+			var retVal string
+			di := deviceinfo.DeviceInfo{
+				DeviceName: strDeviceFlag,
+			}
+			data := di.GetIpAddressFromInterfaceName()
 
-		// Print internal ip address
-		if data == "" {
-			retVal = "Are you connected to the internet or internal adapter not starts with \"en\" ?"
-		} else {
-			retVal = fmt.Sprintf("VPN ip address: %s", data)
-		}
-		println(retVal)
-	},
-}
+			// Print internal ip address
+			if data == "" {
+				retVal = "Are you connected to the internet or internal adapter not starts with \"en\" ?"
+			} else {
+				retVal = fmt.Sprintf("Ip address: %s", data)
+			}
+			println(retVal)
+		},
+	}
+)
 
 func init() {
 	rootCmd.AddCommand(internalCmd)
@@ -52,4 +59,6 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// internalCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	internalCmd.Flags().StringVarP(&strDeviceFlag, "device", "d", "en0", "Device name")
+
 }
