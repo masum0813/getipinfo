@@ -8,7 +8,7 @@ import "github.com/masum0813/getipinfo/cmd"
 
 var (
 	// VERSION is set during build
-	VERSION = "0.0.11"
+	VERSION = "0.1.0"
 )
 
 func main() {

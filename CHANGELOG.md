@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning].
 
 - /
 
+## [0.1.0] - 2022-04-27
+### Added
+- Added more than one ip address
+-
+
+
 ## [0.0.11] - 2022-04-27
 ### Fixed
 - Changed Project variable to getipinfo
