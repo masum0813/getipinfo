@@ -1,6 +1,6 @@
 # Get IP Address with Golang
 
-[![Go](https://github.com/masum0813/ipinfo/actions/workflows/go.yml/badge.svg?branch=main)](https://github.com/masum0813/ipinfo/actions/workflows/go.yml)
+[![Go](https://github.com/masum0813/getipinfo/actions/workflows/go.yml/badge.svg?branch=main)](https://github.com/masum0813/getipinfo/actions/workflows/go.yml)
 
 Get IP address(es) with go-lang is a simple command line tool to get your IP address vpn, internal, external, etc.
 
