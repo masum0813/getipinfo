@@ -1,4 +1,4 @@
-module github.com/masum0813/ipinfo
+module github.com/masum0813/getipinfo
 
 go 1.18
 

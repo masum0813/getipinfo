@@ -21,8 +21,8 @@ var (
 		Long: `Get internal ip information on your computer/systems if vpn adapter starts with "en"
 For example:
 
-ipinfo internal
-ipinfo internal -d en0
+getipinfo internal
+getipinfo internal -d en0
 `,
 		Run: func(cmd *cobra.Command, args []string) {
 

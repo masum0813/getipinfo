@@ -21,8 +21,8 @@ var (
 		Long: `Get vpn ip information on your computer/systems if vpn adapter starts with "ppp"
 For example:
 
-ipinfo vpn
-ipinfo vpn -d ppp0
+getipinfo vpn
+getipinfo vpn -d ppp0
 `,
 		Run: func(cmd *cobra.Command, args []string) {
 

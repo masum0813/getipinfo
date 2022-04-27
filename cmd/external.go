@@ -30,7 +30,7 @@ var (
 		Long: `Get external ip information on your computer/systems.
 For example:
 
-ipinfo external
+getipinfo external
 `,
 		Run: func(cmd *cobra.Command, args []string) {
 

@@ -7,7 +7,7 @@ Get IP address(es) with go-lang is a simple command line tool to get your IP add
 ## Usage
 
 ```bash
-ipinfo -h
+getipinfo -h
 A longer description that spans multiple lines and likely contains
 examples and usage of using your application. For example:
 
@@ -16,7 +16,7 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.
 
 Usage:
-  ipinfo [command]
+  getipinfo [command]
 
 Available Commands:
   completion  Generate the autocompletion script for the specified shell
@@ -27,37 +27,37 @@ Available Commands:
   vpn         Get vpn ip information
 
 Flags:
-  -h, --help     help for ipinfo
+  -h, --help     help for getipinfo
   -t, --toggle   Help message for toggle
 
-Use "ipinfo [command] --help" for more information about a command.
+Use "getipinfo [command] --help" for more information about a command.
 ```
 
 External IP:
 
 ```bash
-ipinfo external
+getipinfo external
 External ip address: xx.xx.xx.xx
 ```
 
 Internal IP:
 
 ```bash
-ipinfo internal
+getipinfo internal
 VPN ip address: 192.168.1.49
 ```
 
 VPN IP:
 
 ```bash
-ipinfo vpn
+getipinfo vpn
 VPN ip address: xx.xx.xx.xx
 ```
 
-* How to install ipinfo
+* How to install getipinfo
 
 ```bash
-go install github.com/masum0813/ipinfo@latest
+go install github.com/masum0813/getipinfo@latest
 ```
 
 * Install Cobra[https://github.com/spf13/cobra]

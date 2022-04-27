@@ -9,24 +9,20 @@ and this project adheres to [Semantic Versioning].
 
 - /
 
+## [0.0.11] - 2022-04-27
+### Fixed
+- Changed Project variable to getipinfo
+
 ## [0.0.10] - 2022-04-26
 
 ### Added
 - Added CHANGELOG.md
 - Added adaptername to internal and vpn results (a28a8a7)
-- Changed Project Name to getipinfo
-
-### Changed
-
-### Deprecated
-
-### Removed
+- Changed Project Name to getipinfo (03f5277)
 
 ### Fixed
 - Internal Ip address wording
 - External Ip address wording (9df690a)
-
-### Security
 
 
 ## [0.0.9] - 2022-04-26

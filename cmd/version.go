@@ -13,8 +13,8 @@ import (
 // versionCmd represents the version command
 var versionCmd = &cobra.Command{
 	Use:   "version",
-	Short: "Show ipinfo version information",
-	Long:  `Show ipinfo version information`,
+	Short: "Show getipinfo version information",
+	Long:  `Show getipinfo version information`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println(rootCmd.Use + " version " + VERSION)
 	},
