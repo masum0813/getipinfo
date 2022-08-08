@@ -39,12 +39,7 @@ changelog:
       - '^test:'
 dockers:
   -
-    goos:
-      - linux
-      - darwin
-    goarch:
-      - amd64
-      - arm64
+    goos: linux
     image_templates:
       - "masum0813/getipinfo:latest"
       - "masum0813/getipinfo:{{ .Tag }}"
